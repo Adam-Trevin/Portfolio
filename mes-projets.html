@@ -239,7 +239,13 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <button type="submit">Envoyer</button>
+                    <input type="submit" value="Envoyer">
+                    <script>
+                        document.getElementById('contactForm').addEventListener('submit', function(event) {
+                          event.preventDefault();
+                          this.reset();
+                        });
+                        </script>
                 </form>
                 <div class="contact-info">
                     <p><a href="mailto:adam.trevin@etu.univ-grenoble-alpes.fr"><i class="far fa-envelope"></i> adam.trevin@etu.univ-grenoble-alpes.fr</a></p>

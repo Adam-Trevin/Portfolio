@@ -55,7 +55,7 @@ a {
 
 /* Hero Section */
 .hero {
-  background: url('codage.jpg') no-repeat center center/cover;
+  background: url('img/codage.jpg') no-repeat center center/cover;
   color: white;
   height: 100vh;
   display: flex;
@@ -255,7 +255,7 @@ a {
 /* Contact Section */
 #contact {
   padding: 60px 20px;
-  background: url('contact.jpg') no-repeat center center/cover;
+  background: url('img/contact.jpg') no-repeat center center/cover;
   text-align: center;
   color: white;
 }
