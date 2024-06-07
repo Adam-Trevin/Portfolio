@@ -1,0 +1,442 @@
+/* Global Styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: white;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  color: #333;
+  font-size: 18px;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #007BFF;
+}
+
+/* Hero Section */
+.hero {
+  background: url('codage.jpg') no-repeat center center/cover;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 20px;
+}
+
+.hero p {
+  font-size: 24px;
+  margin: 10px 0 0;
+}
+
+/* Section Qui suis-je */
+.qui-suis-je {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: left;
+}
+
+.qui-suis-je-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.qui-suis-je-photo {
+  flex: 1;
+  max-width: 20%;
+  margin-right: 70px;
+  border-radius: 10px;
+}
+
+.qui-suis-je-text {
+  flex: 1;
+  max-width: 60%;
+}
+
+.qui-suis-je-text p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .qui-suis-je-content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .qui-suis-je-photo {
+      max-width: 80%;
+      margin-bottom: 20px;
+  }
+
+  .qui-suis-je-text {
+      max-width: 100%;
+  }
+}
+
+/* Projects Section */
+.projets {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.projets h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  cursor: grab;
+}
+
+.carousel:active {
+  cursor: grabbing;
+}
+
+.projet-page {
+  display: flex;
+  min-width: 100%;
+}
+
+.projet-item {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.projet-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Add a fixed size for project icons except linux.jpeg */
+.projet-icon {
+  width: 400px; /* Adjust width to match linux.jpeg */
+  height: 300px; /* Adjust height to match linux.jpeg */
+  object-fit: cover; /* Ensure images are properly resized */
+  border-radius: 10px;
+}
+
+.projet-item h3 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.projet-description {
+  font-size: 16px;
+  color: #555;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.indicator.active {
+  background-color: #007BFF;
+}
+
+/* Pop-up Styles */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+  width: 80%;
+  max-width: 600px;
+  max-height: 80%; /* Ajoutez cette ligne pour limiter la hauteur */
+  overflow-y: auto; /* Ajoutez cette ligne pour permettre le défilement vertical */
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.popup p {
+  margin-bottom: 0;
+}
+
+.popup .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+/* Contact Section */
+#contact {
+  padding: 60px 20px;
+  background: url('contact.jpg') no-repeat center center/cover;
+  text-align: center;
+  color: white;
+}
+
+#contact h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px 40px; /* Augmenter le padding pour agrandir le fond noir */
+  border-radius: 10px;
+  max-width: 1100px; /* Augmenter la largeur maximale */
+  margin: 0 auto;
+}
+
+.contact-form {
+  text-align: left;
+  flex: 2;
+  min-width: 280px; /* Minimum width to prevent collapsing */
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  flex: 1;
+  min-width: calc(50% - 10px); /* Adjusted for better responsiveness */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+.form-group input,
+.form-group textarea {
+  width: calc(100% - 20px); /* Réduction de la largeur des champs */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+.contact-info {
+  text-align: center;
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  color: grey;
+  transition: color 0.3s ease;
+}
+
+.contact-info p:hover {
+  color: white;
+}
+
+.contact-info i, .contact-info img {
+  margin-right: 3px;
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.contact-info a img {
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #03224c;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+footer ul li {
+  margin: 0 10px;
+}
+
+footer ul li a {
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+footer ul li a:hover {
+  color: #007BFF;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  .hero {
+    height: 70vh;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .projets h2 {
+    font-size: 28px;
+  }
+
+  .projets p {
+    font-size: 16px;
+  }
+}

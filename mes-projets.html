@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="themes/white.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#qui-suis-je">Qui suis-je ?</a></li>
+                <li><a href="#mes-projets">Mes projets</a></li>
+                <li><a href="#contact">Me contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="accueil" class="hero">
+            <h1>Adam Trevin</h1>
+            <p>Étudiant en première année du BUT informatique</p>
+        </section>
+        <section id="qui-suis-je" class="qui-suis-je">
+            <h2>Qui suis-je ?</h2>
+            <div class="qui-suis-je-content">
+                <img src="user.png" alt="Photo de moi" class="qui-suis-je-photo">
+                <div class="qui-suis-je-text">
+                    <p>Bonjour ! Je m'appelle Adam Trevin, étudiant en première année du BUT informatique.</p>
+                    <p>Je suis passionné par le développement web et la programmation depuis de nombreuses années. Après avoir acquis des compétences en autodidacte, j'ai décidé de formaliser mon apprentissage en rejoignant un programme universitaire en informatique.</p>
+                    <p>En plus de mes études, je participe à divers projets qui me permettent de mettre en pratique mes compétences en HTML, CSS, JavaScript, et d'autres technologies de développement web. Mon objectif est de devenir développeur full-stack et de contribuer à des projets innovants.</p>
+                </div>
+            </div>
+        </section>
+        <section id="mes-projets" class="projets">
+            <h2>Mes projets</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="projet-page">
+                        <div class="projet-item" data-description="Mission : effectuer un tri parmi des dépêches journalistiques
+                        <br><br>
+                        But : A partir de 500 dépêches déjà classées dans 5 catégories différentes (Sport, Environnement-Science, Politique, Culture et Economie) nous devions créer un algorithme capable d'identifier la catégorie d'autres dépêches en fonction des mots-clés présents dans celles-ci et cela le plus précisément possible.
+                        <br><br>
+                        Nombre de participants : 2
+                        <br><br>
+                        Travail effectué par tout le monde : Nous avons fait un algorithme de tri et de création de lexique ainsi qu'un dossier résumant ce que l'on a fait durant la semaine dédiée à ce projet, le dossier a été rédigé en anglais.<br><br>Travail que j'ai effectué : Je me suis occupé de l'algorithme de création de lexique, l'algorithme de tri des lexiques ainsi que le code autour pour qu'il puisse fonctionner correctement notamment le calcul du score et de la précision.
+                        <br><br>
+                        compétences du programme national : <br><br>
+                        - Implémenter des conceptions simples
+                        <br><br>
+                        - Élaborer des conceptions simples
+                        <br><br>
+                        - Analyser un problème avec méthode (découpage en éléments algorithmiques simples, structure de données...)
+                        <br><br>
+                        - Comparer des algorithmes pour des problèmes classiques (tris simples, recherche...)
+                        <br><br>
+                        Ressources :
+                        <br>">
+                            <img src="java.webp" alt="Projet 1" class="projet-icon">
+                            <h3>Projet 1</h3>
+                            <p class="projet-description">Implémentation d'un besoin client / Comparaison d'approches algorithmiques SAE1.01/2</p>
+                        </div>
+                        <div class="projet-item" data-description="Mission : Installation d'un poste de développement.
+                        <br><br>
+                        But :Installation de Linux sur une machine virtuelle afin d'y installer un environnement de développement. Création d'une carte mentale pour résumer toute l'installation.
+                        <br><br>
+                        Nombre de participants : 1
+                        <br><br>
+                        Travail que j'ai effectué : J'ai mis en place et configuré un système Linux sur une machine virtuelle. Après avoir terminé l'installation, j'ai ajusté les permissions administratives pour pouvoir installer des programmes. J'ai ensuite installé les paquets Debian nécessaires pour d'autres installations, notamment snap et flatpak. Par la suite, j'ai installé un environnement de développement (IntelliJ IDEA) de plusieurs manières : via flatpak, snap ou par archive. Pour documenter le processus, j'ai créé une carte mentale détaillant les différentes étapes des installations. Vous pouvez consulter cette carte mentale dans les ressources de ce projet. Le projet incluait également une tâche distincte consistant à traduire des instructions en assembleur en anglais.
+                        <br><br>
+                        Ce projet a été très enrichissant, car il m'a permis de rédiger un guide d'installation en anglais pour un serveur web Apache sur une machine virtuelle. Cette activité m'a non seulement aidé à mieux comprendre le serveur web Apache, mais aussi à améliorer mes compétences en communication technique en anglais.
+                        <br><br>
+                        Compétences du programme national : <br><br>
+                        - Identifier les différents composants (matériels et logiciels) d’un système numérique
+                        <br><br>
+                        - Utiliser les fonctionnalités de base d’un système multitâches / multiutilisateurs
+                        <br><br>
+                        - Installer et configurer un système d’exploitation et des outils de développement
+                        <br><br>
+                        ">
+                            <img src="linux.jpeg" alt="Projet 2" class="projet-icon">
+                            <h3>Projet 2</h3>
+                            <p class="projet-description">Installation d'un poste pour le développement SAE1.03</p>
+                        </div>
+                    </div>
+                    <div class="projet-page">
+                        <div class="projet-item" data-description="Mission : Création d'une base de données afin d'analyser une situation (naufrage du Titanic).
+                        <br><br>
+                        But : Concevoir entièrement une base de données SQL et l'explpoiter pour récupérer des informations.
+                        <br><br>
+                        Nombre de participants : 3
+                        <br><br>
+                        Travail effectué par tout le monde : Premièrement nous avons du définir des règles de gestion en se basant sur le sujet, afin de déterminer la conception globale de la base de données. Ces règles imposent des contraintes, telles que les relations entre les diverses tables, la multiplicité ou le type de chaque attribut, ainsi que les regroupements d'attributs au sein des mêmes tables.
+                        <br><br>
+                        
+                        Nous avons ensuite conçu et justifié un schéma entité-association (SEA) à partir des règles de gestion. Ce SEA avait pour rôle de produire ensuite un schéma relationnel (SLR) en appliquant des règles strictes. Le SLR nous a été fourni dans le cadre du projet et il nous a fallu l'implémenter sur PostgreSQL. Nous avons tout de même dû justifier les choix qui ont conduit au SLR fourni.
+                        <br><br>
+                        Pendant cette SAE, nous avons appris à utiliser le langage de requête SQL de PostgreSQL pour créer des tables, définir des contraintes d'intégrité et insérer des données dans la base de données. Nous avons également exploré les différents types de requêtes, tels que les requêtes de sélection, d'insertion, de mise à jour et de suppression, afin de manipuler efficacement les données selon les besoins du projet. Finalement, nous avons écrit des requêtes en langage SQL afin d'exploiter la base de données et rendre un compte rendu de ce que nous avions conclu du naufrage grâce à ces données.
+                        <br><br>
+                        Travail que j'ai effectué : J'ai conçu le SEA à partir des informations données par le sujet du projet. J'ai aussi justifié le schéma relationnel proposé dans le cadre du projet : type de données, tables choisies, contraintes, etc. Enfin, j'ai écrit des requêtes en langage SQL et une partie du compte rendu de l'exploitation de la base de données.
+                        <br><br>
+                        Compétences du programme national : <br><br>
+                                                            - Mettre à jour et interroger une base de données relationnelle (en requêtes directes ou à travers une application) <br><br>
+                                                            - Visualiser des données <br><br>
+                                                            - Concevoir une base de données relationnelle à partir d’un cahier des charges
+
+                        ">
+                            <img src="sql.jpg" alt="Projet 3" class="projet-icon">
+                            <h3>Projet 3</h3>
+                            <p class="projet-description">Création d'une base de données SAE1.04</p>
+                        </div>
+                        <div class="projet-item" data-description="Mission : Créer et développer un site internet pour les élèves de troisième pour l'entreprise CapGemini.
+                        <br><br>
+                        Objectif : Réaliser un recueil des besoins et une maquette afin de concevoir un site internet conforme aux exigences du projet.
+                        <br><br>
+                        Nombre de participants : 3
+                        <br><br>
+                        Travail effectué par toute l'équipe : Avant de commencer le développement du site internet de CapGemini, nous avons rédigé un recueil des besoins. Cette étape a nécessité des recherches approfondies sur le site internet de CapGemini. Chacun d'entre nous a recueilli des informations sur diverses catégories telles que les produits, les activités de l'entreprise, ses valeurs, et son engagement dans la transition écologique. Ce recueil nous a ensuite guidés pour intégrer les informations nécessaires au site que nous devions coder.
+                        <br><br>
+                        Ensuite, nous avons réalisé le wireframe (la maquette) du site afin d'avoir une vision claire de sa structure et de réduire les incertitudes lors du développement en HTML et CSS. La conception de cette maquette a été répartie équitablement entre les membres du groupe, chacun étant responsable de deux ou trois pages.
+                        <br><br>
+                        Après ces deux étapes, nous avons entamé le développement du site. Le travail a été réparti par pages, chaque membre étant chargé du code HTML et CSS de ses pages. Nous nous sommes régulièrement réunis pour harmoniser le style appliqué à l'ensemble du site. Une fois le site finalisé, nous l'avons présenté à l'oral devant un jury de professeurs de l'IUT2 de Grenoble.
+                        <br><br>
+                        Travail que j'ai effectué : Pour la collecte d'informations sur le site de CapGemini, je me suis concentré sur les clients, le financement et les valeurs de l'entreprise. Cette recherche m'a amené à explorer le site internet existant, ce qui m'a permis de constater la difficulté à trouver certaines informations spécifiques, un point que nous avons veillé à améliorer dans notre version du site.
+                        <br><br>
+                        Pour la conception du wireframe, j'ai d'abord défini un bas de page (footer) simple, mais incluant une carte indiquant la position du siège social de CapGemini pour ajouter une touche d'originalité. J'ai ensuite conçu la maquette des pages relatives aux clients de CapGemini et à l'organisation de l'entreprise, en adoptant une approche minimaliste pour ne pas surcharger d'informations les élèves de troisième visitant le site.
+                        <br><br>
+                        Enfin, j'ai logiquement pris en charge la réalisation des pages dont j'avais conçu le wireframe. J'ai suivi la maquette en utilisant mes compétences en développement HTML et CSS. J'ai ensuite appliqué un style cohérent aux différents éléments, en respectant le thème global du site. Pour finir, j'ai rempli les pages avec les informations collectées lors de la rédaction du recueil des besoins. Le temps restant a été consacré à aider mes coéquipiers pour garantir l'homogénéité du site.
+                        <br><br>
+                        Compétences du programme national : <br><br>
+                        - Comprendre les besoins du client et de l'utilisateur
+                        <br><br>
+                        - Comprendre l’écosystème numérique
+                        <br><br>
+                        - Acquérir des compétences interpersonnelles pour travailler en équipe
+                        <br><br>
+                        ">
+                            <img src="html.jpg" alt="Projet 4" class="projet-icon">
+                            <h3>Projet 4</h3>
+                            <p class="projet-description">Recueil de besoins / Découverte de l'environnement économique et écologique SAE1.05/6</p>
+                        </div>
+                    </div>
+                    <div class="projet-page">
+                        <div class="projet-item" data-description="Mission : Réalisé un guide d'installation rédigé en anglais d'un serveur Debian 12 équipé d'Apache, PostgreSQL et PHP.
+                        <br><br>
+                        But : L'objectif de cette tâche est de créer un guide d'installation complet et détaillé qui aidera les utilisateurs à configurer un serveur Debian 12 avec Apache, PostgreSQL et PHP. Ce guide garantira que le serveur est fonctionnel et peut être interrogé depuis la machine hôte.
+                        <br><br>
+                        Nombre de participants : 1
+                        <br><br>
+                        Travail que j'ai effectué : Tout d'abord  pour ce projet j'ai du réaliser les installations moi-même sur une machine virtuelle. Il m'a fallu lire le cahier des charges, j'ai pris connaissance des exigences et des spécifications de ce projet, y compris les captures d'écran requises et les étapes minimales à inclure dans le guide.
+                        <br><br>
+                        Puis pour installer Debian 12, j'ai téléchargé et vérifié l'image ISO de Debian 12. J'ai installé Debian 12 sur une machine virtuelle en utilisant Qemu/KVM, j'ai documenté chaque étape de l'installation avec des captures d'écran, y compris la saisie du nom de login UGA et la sélection des logiciels.
+                        <br><br>
+                        Ensuite pour l'installation d'Apache j'ai utilisé APT, vérifié que le serveur fonctionnait correctement et redirigé les ports pour accéder au serveur Apache depuis la machine hôte.
+                        <br><br>
+                        Pour installer PostgreSQL j'ai aussi utilisé APT, configuré PostgreSQL pour qu'il soit accessible depuis la station Linux, j'ai créé un utilisateur PostgreSQL et configuré une base de données associée et inséré des données dans une table PostgreSQL et vérifié les mots de passe hachés avec SHA-256.
+                        <br><br>
+                        Pour l'installation de PHP j'ai encore utilisé APT, puis installé et configuré PhpPgAdmin pour gérer PostgreSQL via une interface web.
+                        <br><br>
+                        Compétences du programme national :
+                        <br><br>
+                        - Installer et configurer un système d’exploitation et des outils de développement
+                        <br><br>
+                        - Utiliser les fonctionnalités de base d’un système multitâches / multiutilisateurs
+                        ">
+                            <img src="debian.webp" alt="Projet 5" class="projet-icon">
+                            <h3>Projet 5</h3>
+                            <p class="projet-description">Installation de services réseau SAE2.03</p>
+                        </div>
+                        <div class="projet-item" data-description="Mission : Sélectionner et trier les données de la base d'Open Food Facts pour ne conserver que les informations sur les repas complet préparés en France, et produire des graphiques à partir de ces données.
+                        <br><br>
+                        Objectif : Analyser les relations entre le nutri-score des sauces (produits sélectionnés uniquement aux États-Unis) et leur composition (glucides, sucre, etc.).
+                        <br><br>
+                        Nombre de participants : 2
+                        <br><br>
+                        Travail effectué par l'équipe : Le projet s'est déroulé en trois phases. La première phase a consisté à explorer et nettoyer la base de données SQL d'Open Food Facts. Nous avons ensemble rédigé une requête SQL pour extraire les informations spécifiques aux sauces américaines en respectant certaines contraintes (suppression des lignes incomplètes, indication du caractère végétarien ou non d'une sauce, etc.). Les données filtrées ont ensuite été exportées dans un fichier CSV pour une exploitation ultérieure.
+                        <br><br>
+                        Ensuite, nous avons analysé les données en créant divers graphiques à l'aide de R Studio. Ces graphiques ont mis en lumière les relations entre la composition des sauces et leur nutri-score, déterminant ainsi leur impact sur la santé. Chaque graphique a été annoté en anglais et nous avons formulé des conclusions intermédiaires pour chaque partie de notre analyse, ainsi qu'une conclusion globale.
+                        <br><br>
+                        Enfin, nous avons identifié les contraintes liées à notre projet, évalué les risques potentiels, leur criticité et élaboré des stratégies de mitigation. Nous avons créé une matrice de criticité pour identifier les contraintes les plus sensibles et décrit en détail la gestion d'une contrainte spécifique à l'aide d'un schéma.
+                        <br><br>
+                        Travail que j'ai effectué : Pour la première partie du projet, mon coéquipier et moi avons principalement collaboré pour concevoir la requête SQL finale, en tenant compte de toutes les contraintes. Toutefois, j'ai rédigé seul les clauses 'CASE' de la requête pour améliorer la lisibilité des résultats exportés. Chaque clause attribuait une lettre aux attributs tels que 'vegan' ou 'végétarien' en fonction des informations présentes dans le champ 'ingredients_analysis_tags' de la base de données.
+                        <br><br>
+                        Pour l'analyse des données, j'ai principalement commenté les graphiques et proposé des idées de graphiques à produire à mon coéquipier. J'ai veillé à exprimer clairement en anglais les relations mises en évidence par les graphiques que nous avions sélectionnés.
+                        <br><br>
+                        Enfin, j'ai contribué de manière significative à l'analyse du cycle de gestion de la contrainte choisie. J'ai élaboré un schéma décrivant notre approche pour gérer le risque induit par la contrainte, et indiqué si la contrainte elle-même générait un risque nécessitant une gestion ultérieure.
+                        ">
+                            <img src="bdd.jpg" alt="Projet 6" class="projet-icon">
+                            <h3>Projet 6</h3>
+                            <p class="projet-description">Exploitation d'une base de données SAE2.04</p>
+                        </div>
+                    </div>
+                    <div class="projet-page">
+                        <div class="projet-item" data-description="blabla">
+                            <img src="path/to/icon7.png" alt="Projet 7" class="projet-icon">
+                            <h3>Projet 7</h3>
+                            <p class="projet-description">Développement d'une application / Exploration algorithmique d'un problème / Gestion de projet / Organisation d’un travail d'équipe SAE2.0[1256]</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showPage(0)"></span>
+                    <span class="indicator" onclick="showPage(1)"></span>
+                    <span class="indicator" onclick="showPage(2)"></span>
+                    <span class="indicator" onclick="showPage(3)"></span>
+                </div>
+            </div>
+        </section>        
+        <section id="contact">
+            <h2>Me contacter</h2>
+            <div class="contact-container">
+                <form action="submit_form.php" method="post" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="prenom">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Objet de la demande</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit">Envoyer</button>
+                </form>
+                <div class="contact-info">
+                    <p><a href="mailto:adam.trevin@etu.univ-grenoble-alpes.fr"><i class="far fa-envelope"></i> adam.trevin@etu.univ-grenoble-alpes.fr</a></p>
+                    <p><a href="tel:+33640194012"><i class="fas fa-phone"></i> 06 40 19 40 12</a></p>
+                    <p><a href="https://www.google.com/maps/search/?api=1&query=IUT2+Place+Doyen+Gosse+Grenoble" target="_blank"><i class="fas fa-home"></i> 38000 Grenoble</a></p>
+                    <p><a href="https://www.linkedin.com/in/adam-trevin-a6a505264" target="_blank"><img src="linkedin.png" alt="LinkedIn Icon"></a></p>
+                </div>
+            </div>
+        </section>        
+    </main>
+    <footer>
+        <ul>
+            <li><a href="https://github.com/kakedi" target="_blank">Github</a></li>
+            <li><a href="https://discord.com/channels/@me" target="_blank">Discord</a></li>
+            <li><a href="https://www.instagram.com/adam.trv/" target="_blank">Instagram</a></li>
+        </ul>
+    </footer>
+    <script src="portfolio.js"></script>
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div class="popup" id="popup">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <h2 id="popup-title">Titre du Projet</h2>
+        <p id="popup-description">Description du projet...</p>
+    </div>    
+</body>
+</html>
