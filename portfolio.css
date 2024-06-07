@@ -315,7 +315,7 @@ a {
   resize: vertical;
 }
 
-.contact-form button {
+.contact-form input[type="submit"] {
   background-color: #007BFF;
   color: white;
   padding: 10px 20px;
@@ -327,7 +327,7 @@ a {
   transition: 0.3s ease;
 }
 
-.contact-form button:hover {
+.contact-form input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
