@@ -224,8 +224,7 @@ a {
   max-width: 600px;
   max-height: 80%; /* Ajoutez cette ligne pour limiter la hauteur */
   overflow-y: auto; /* Ajoutez cette ligne pour permettre le défilement vertical */
-  border-radius: 10px;
-}
+  border-radius: 10px
 
 .popup h2 {
   margin-top: 0;
