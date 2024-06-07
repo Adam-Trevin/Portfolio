@@ -29,8 +29,8 @@
                 <img src="img/user.png" alt="Photo de moi" class="qui-suis-je-photo">
                 <div class="qui-suis-je-text">
                     <p>Bonjour ! Je m'appelle Adam Trevin, étudiant en première année du BUT informatique.</p>
-                    <p>Je suis passionné par le développement web et la programmation depuis de nombreuses années. Après avoir acquis des compétences en autodidacte, j'ai décidé de formaliser mon apprentissage en rejoignant un programme universitaire en informatique.</p>
-                    <p>En plus de mes études, je participe à divers projets qui me permettent de mettre en pratique mes compétences en HTML, CSS, JavaScript, et d'autres technologies de développement web. Mon objectif est de devenir développeur full-stack et de contribuer à des projets innovants.</p>
+                    <p>Après avoir obtenu mon baccalauréat général j'ai décidé de m'orienter dans une formation en informatique pour pouvoir dans le futur travailler dans le développement informatique.</p>
+                    <p>En plus de mes études je mène un projet sportif, étant sportif de haut-niveau en escrime. Je suis passé par une structure de détection de haut-niveau et intégrer ainsi le sport-étude au lycée.</p>
                 </div>
             </div>
         </section>
@@ -203,7 +203,7 @@
         <section id="contact">
             <h2>Me contacter</h2>
             <div class="contact-container">
-                <form action="submit_form.php" method="post" class="contact-form">
+                <form id="contactForm" action="submit_form.php" method="post" class="contact-form" onsubmit="redirectToProjects(event)">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Nom</label>
@@ -234,11 +234,13 @@
                     </div>
                     <input type="submit" value="Envoyer">
                     <script>
-                        document.getElementById('contactForm').addEventListener('submit', function(event) {
-                          event.preventDefault();
-                          this.reset();
-                        });
-                        </script>
+                    function redirectToProjects(event) {
+                        event.preventDefault(); // Empêche l'action par défaut du formulaire
+                        window.location.href = "#mes-projets"; // Redirige vers la section "mes-projets"
+                        document.getElementById("contactForm").submit(); // Soumet le formulaire
+                    }
+                    </script>
+
                 </form>
                 <div class="contact-info">
                     <p><a href="mailto:adam.trevin@etu.univ-grenoble-alpes.fr"><i class="far fa-envelope"></i> adam.trevin@etu.univ-grenoble-alpes.fr</a></p>
