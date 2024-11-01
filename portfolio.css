@@ -124,11 +124,11 @@ a {
   }
 }
 
-/* Projects Section */
-.projets {
-  padding: 60px 20px;
-  background-color: #fff;
-  text-align: center;
+.projet-icon {
+  width: 400px; /* Adjust width to match linux.jpeg */
+  height: 300px; /* Adjust height to match linux.jpeg */
+  object-fit: cover; /* Ensure images are properly resized */
+  border-radius: 10px;
 }
 
 .projets h2 {
@@ -136,10 +136,9 @@ a {
   margin-bottom: 20px;
 }
 
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+.projets h3 {
+  margin: 10px 0;
+  font-size: 24px;
 }
 
 .carousel {
@@ -157,36 +156,25 @@ a {
   min-width: 100%;
 }
 
-.projet-item {
+.project {
   flex: 1;
   background: #f9f9f9;
-  padding: 20px;
+  padding: 60px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  transition: transform 0.2s;
+  transition: transform 0.6s;
+  text-align: center;
 }
 
-.projet-item:hover {
+.project:hover {
   transform: translateY(-5px);
 }
 
-/* Add a fixed size for project icons except linux.jpeg */
-.projet-icon {
-  width: 400px; /* Adjust width to match linux.jpeg */
-  height: 300px; /* Adjust height to match linux.jpeg */
-  object-fit: cover; /* Ensure images are properly resized */
-  border-radius: 10px;
-}
-
-.projet-item h3 {
-  margin: 10px 0;
-  font-size: 24px;
-}
-
-.projet-description {
-  font-size: 16px;
-  color: #555;
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 }
 
 .carousel-indicators {
@@ -202,7 +190,7 @@ a {
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.6s;
 }
 
 .indicator.active {
@@ -222,35 +210,29 @@ a {
   display: none;
   width: 80%;
   max-width: 600px;
-  max-height: 80%; /* Ajoutez cette ligne pour limiter la hauteur */
-  overflow-y: auto; /* Ajoutez cette ligne pour permettre le défilement vertical */
-  border-radius: 10px
+  max-height: 80%;
+  overflow-y: auto;
+  border-radius: 10px;
+  overscroll-behavior: contain;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.popup h2 {
-  margin-top: 0;
+/* Hide scrollbar for Chrome, Safari and Opera */
+.popup::-webkit-scrollbar {
+  display: none;
 }
 
-.popup p {
-  margin-bottom: 0;
-}
-
-.popup .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.popup-overlay {
+/* Overlay Styles */
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  z-index: 999; /* Just below the pop-up */
+  display: none; /* Hidden by default */
 }
 
 /* Contact Section */
@@ -441,4 +423,12 @@ footer ul li a:hover {
   .projets p {
     font-size: 16px;
   }
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.dropdown-content.active {
+  display: block;
 }
