@@ -6,6 +6,10 @@ body {
   color: #333;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -233,6 +237,7 @@ a {
   background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
   z-index: 999; /* Just below the pop-up */
   display: none; /* Hidden by default */
+  backdrop-filter: blur(3px);
 }
 
 /* Contact Section */
