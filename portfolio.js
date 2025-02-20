@@ -1,145 +1,184 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const carousel = document.querySelector('.carousel');
-  const indicators = document.querySelectorAll('.indicator');
-  const closeBtn = document.getElementById('close-btn');
-  let isDragging = false;
-  let startPos = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
-  let animationID;
-  let currentIndex = 0;
-  let isClicking = true;
+    function getItemCount() {
+        return document.querySelectorAll('.item').length;
+    }
 
-  const overlay = document.createElement('div');
-  overlay.className = 'overlay';
-  document.body.appendChild(overlay);
+    let prevBtn = document.getElementById('prev');
+    let nextBtn = document.getElementById('next');
+    let carousel = document.querySelector('.carousel');
+    let indicator = carousel.querySelector('.indicators');
+    let active = 0;
+    let autoPlay;
 
-  const getPositionX = (event) => {
-      return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
-  };
+    function getLastPosition() {
+        return getItemCount() - 1;
+    }
 
-  const animation = () => {
-      setSliderPosition();
-      if (isDragging) requestAnimationFrame(animation);
-  };
+    function getItems() {
+        return document.querySelectorAll('.item');
+    }
 
-  const setSliderPosition = () => {
-      carousel.style.transform = `translateX(${currentTranslate}px)`;
-  };
+    function updateIndicators() {
+        const dotsContainer = indicator.querySelector('ul');
+        dotsContainer.innerHTML = ''; // Clear old indicators
+        const itemCount = getItemCount();
 
-  const setPositionByIndex = () => {
-      currentTranslate = currentIndex * -carousel.offsetWidth;
-      prevTranslate = currentTranslate;
-      setSliderPosition();
-      updateIndicators();
-  };
+        for (let i = 0; i < itemCount; i++) {
+            const dot = document.createElement('li');
+            if (i === active) {
+                dot.classList.add('active');
+            }
+            dotsContainer.appendChild(dot);
 
-  const updateIndicators = () => {
-      indicators.forEach((indicator, index) => {
-          indicator.classList.toggle('active', index === currentIndex);
-      });
-  };
+            dot.onclick = () => {
+                active = i;
+                setSlider();
+                startAutoPlay(); // Reset timer when clicking on an indicator
+            };
+        }
+    }
 
-  const touchStart = (event) => {
-      startPos = getPositionX(event);
-      isDragging = true;
-      isClicking = true;
-      animationID = requestAnimationFrame(animation);
-      carousel.style.transition = 'none';
-  };
+    const startAutoPlay = () => {
+        clearInterval(autoPlay);
+        autoPlay = setInterval(() => {
+            nextBtn.click();
+        }, 5000);
+    };
 
-  const touchMove = (event) => {
-      if (isDragging) {
-          const currentPosition = getPositionX(event);
-          currentTranslate = prevTranslate + currentPosition - startPos;
-          if (Math.abs(currentPosition - startPos) > 10) {
-              isClicking = false;
-          }
-      }
-  };
+    const stopAutoPlay = () => {
+        clearInterval(autoPlay);
+    };
 
-  const touchEnd = () => {
-      isDragging = false;
-      cancelAnimationFrame(animationID);
-      const movedBy = currentTranslate - prevTranslate;
-      if (movedBy < -100 && currentIndex < indicators.length - 1) {
-          currentIndex += 1;
-      } else if (movedBy > 100 && currentIndex > 0) {
-          currentIndex -= 1;
-      }
-      setPositionByIndex();
-      carousel.style.transition = 'transform 0.5s ease-in-out';
-  };
+    const setSlider = () => {
+        const items = getItems();
+        updateIndicators();
+        const dots = indicator.querySelectorAll('ul li');
 
-  const showPopup = (popupId) => {
-      document.querySelectorAll('.popup').forEach(popup => {
-          popup.style.display = 'none';
-      });
-      const popup = document.getElementById(popupId);
-      if (popup) {
-          popup.style.display = 'block';
-          overlay.style.display = 'block';
-          document.body.style.overflow = 'hidden';
-      }
-      document.addEventListener('click', handleClickOutside);
-  };
+        items.forEach(item => item.classList.remove('active'));
+        items[active].classList.add('active');
 
-  const hideAllPopups = () => {
-      document.querySelectorAll('.popup').forEach(popup => {
-          popup.style.display = 'none';
-      });
-      overlay.style.display = 'none';
-      document.body.style.overflow = '';
-      document.removeEventListener('click', handleClickOutside);
-  };
+        if (dots[active]) {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[active].classList.add('active');
+        }
 
-  const handleClickOutside = (event) => {
-      if (!event.target.closest('.popup') && !event.target.closest('.dropdown-button')) {
-          hideAllPopups();
-      }
-  };
+        indicator.querySelector('.number').innerText = '0' + (active + 1);
+    };
 
-  document.querySelectorAll('.project').forEach(item => {
-      item.addEventListener('click', (event) => {
-          if (isClicking) {
-              event.stopPropagation();
-              if (document.querySelector('.popup[style*="block"]')) {
-                  hideAllPopups();
-              } else {
-                  const popupId = item.getAttribute('onclick').match(/'(.+?)'/)[1];
-                  hideAllPopups();
-                  showPopup(popupId);
-              }
-          }
-      });
-  });
+    nextBtn.onclick = () => {
+        active = active + 1 > getLastPosition() ? 0 : active + 1;
+        carousel.style.setProperty('--calculation', 1);
+        setSlider();
+        startAutoPlay(); // Reset timer when clicking Next
+    };
 
-  closeBtn.addEventListener('click', hideAllPopups);
-  carousel.addEventListener('mousedown', touchStart);
-  carousel.addEventListener('mouseup', touchEnd);
-  carousel.addEventListener('mousemove', touchMove);
-  carousel.addEventListener('mouseleave', () => {
-      if (isDragging) touchEnd();
-  });
-  carousel.addEventListener('touchstart', touchStart);
-  carousel.addEventListener('touchend', touchEnd);
-  carousel.addEventListener('touchmove', touchMove);
-  indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-          currentIndex = index;
-          setPositionByIndex();
-      });
-  });
+    prevBtn.onclick = () => {
+        active = active - 1 < 0 ? getLastPosition() : active - 1;
+        carousel.style.setProperty('--calculation', -1);
+        setSlider();
+        startAutoPlay(); // Reset timer when clicking Prev
+    };
 
-  setPositionByIndex();
+    // Initial setup
+    updateIndicators();
+    setSlider();
+    startAutoPlay();
 
-  // Dropdown buttons functionality
-  document.querySelectorAll('.dropdown-button').forEach(button => {
-      button.addEventListener('click', () => {
-          const dropdown = button.nextElementSibling;
-          if (dropdown && dropdown.classList.contains('dropdown-content')) {
-              dropdown.classList.toggle('active');
-          }
-      });
-  });
+    // Handling pop-ups
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    document.body.appendChild(overlay);
+
+    const showPopup = (popupId) => {
+        const popup = document.getElementById(popupId);
+        if (popup) {
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            stopAutoPlay(); // Stop the autoplay when a pop-up is opened
+        }
+    };
+
+    const hideAllPopups = () => {
+        document.querySelectorAll('.popup').forEach(popup => {
+            popup.style.display = 'none';
+        });
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+        startAutoPlay(); // Restart autoplay when all pop-ups are closed
+    };
+
+    overlay.addEventListener('click', hideAllPopups);
+
+    document.querySelectorAll('.btn-en-savoir-plus').forEach(button => {
+        button.addEventListener('click', () => {
+            const popupId = button.getAttribute('data-popup-id');
+            showPopup(popupId);
+        });
+    });
+
+    document.querySelectorAll('.popup .close').forEach(closeButton => {
+        closeButton.addEventListener('click', hideAllPopups);
+    });
+
+    // Gestion des dropdowns
+    document.querySelectorAll('.dropdown-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const dropdownContent = button.nextElementSibling;
+            dropdownContent.classList.toggle('show');
+            startAutoPlay(); // Reset timer when toggling a dropdown
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".navbar ul li a");
+
+    function changeActiveSection() {
+        let scrollPosition = window.scrollY + window.innerHeight / 2; // Centrage du point de détection
+        let activeSection = null;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                activeSection = sectionId;
+            }
+        });
+
+        // Si on est tout en bas, forcer la dernière section
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 5) {
+            activeSection = sections[sections.length - 1].getAttribute("id");
+        }
+
+        // Mettre à jour les liens de la navbar
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${activeSection}`) {
+                link.classList.add("active");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", changeActiveSection);
+    changeActiveSection(); // Pour initialiser la bonne section au chargement
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".navbar ul");
+
+    menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("show");
+        });
+    });
 });
